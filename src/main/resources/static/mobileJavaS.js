@@ -1,3 +1,6 @@
+ // This example creates a 2-pixel-wide red polyline showing the path of William
+      // Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
+      // Brisbane, Australia.
 var app = angular.module('mobile', []);
 
 app.controller('MobileController', function($scope, $http, $location) {
@@ -10,28 +13,28 @@ app.controller('MobileController', function($scope, $http, $location) {
 
 var x = document.getElementById("demo");
 
-$scope.getLocation = function() {
-
+$scope.getLocation=function() {
 	 if (navigator.geolocation) {
-	        navigator.geolocation.watchPosition(showPosition, showError);
+	        navigator.geolocation.watchPosition(showPosition);
 	    } else {
 	        x.innerHTML = "Geolocation is not supported by this browser.";
 	    }
 }
 
 
-
 function showPosition(position) {
     var latlon = position.coords.latitude + "," + position.coords.longitude;
     x.innerHTML = position.coords.latitude + "," + position.coords.longitude;
     var url = "/saveLocation/"+position.coords.latitude+"/"+position.coords.longitude;
-    $http.post(url, config).then(function (sendLocation) {
+
+	console.log(url);
+	
+	$http.get(url,config).then(function (sendLocation) {
     	$scope.boolean = sendLocation.data;
-    	
-    	 
-         }, function (sendLocation) {
-             $scope.boolean = "Fail!";
-             
+    	 }, function (sendLocation) {
+             $scope.boolean = sendLocation.data;
+             		 //document.write(sendLocation);
+
          });
 }
 // To use this code on your website, get a free API key from Google.

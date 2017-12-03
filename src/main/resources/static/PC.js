@@ -1,3 +1,6 @@
+ // This example creates a 2-pixel-wide red polyline showing the path of William
+      // Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
+      // Brisbane, Australia.
 var app = angular.module('pc', []);
 
 app.controller('PcController', function($scope, $http, $location) {	  
@@ -8,8 +11,7 @@ function changeMarkerPosition(marker, lat , lng) {
 		marker.setPosition(latlng);
 	}
 	  
-      $scope.initMap = function () {
-		  alert("init");
+      //function initMap(flightPlanCoordinates) {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 3,
           center: {lat: 0, lng: -180},
@@ -65,6 +67,5 @@ function changeMarkerPosition(marker, lat , lng) {
 			
 
 		}
-	  }
-	    
+	 // }
 });

@@ -10,6 +10,12 @@ public class GPSController {
 	@RequestMapping(value="/pc",method=RequestMethod.GET)
 	public String HomePage()
 	{
+		return "PC";
+	}
+	
+	@RequestMapping(value="/mobile",method=RequestMethod.GET)
+	public String Home2()
+	{
 		return "mobile";
 	}
 }

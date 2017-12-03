@@ -21,14 +21,14 @@ public class GPS {
 	private LocationRepository locationRepository;
 
 	@RequestMapping(value = "/saveLocation/{lat}/{lon}", method = RequestMethod.GET)
-	public String getLocation(@PathVariable String lat, @PathVariable String lon) {
+	public boolean getLocation(@PathVariable String lat, @PathVariable String lon) {
 		Location l = new Location();
 		l.setLat(lat);
 		l.setLon(lon);
 
 		if (locationRepository.save(l) != null)
-			return "Saved";
-		return "error";
+			return true;
+		return false;
 	}
 
 	@RequestMapping(value = "/getCurrentLocation", method = RequestMethod.GET)

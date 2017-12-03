@@ -1,37 +1,35 @@
 <!DOCTYPE html>
-<html ng-app="pc" ng-controller="PcController">
+<html>
+<head>
+<script src="/angular/angular.min.js"></script>
+ <script 
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYusiuutMf0QWoRX_7SNl7r-CLHepvaus+">
+    </script>
+<script src="/PC.js"></script>
+<title>Simple Polylines</title>
+<style>
 
-  <head>
-		<title>Simple Polylines</title>
-		<style>
-		  /* Always set the map height explicitly to define the size of the div
-		   * element that contains the map. */
-		  #map {
-			height: 100%;
-		  }
-		  /* Optional: Makes the sample page fill the window. */
-		  html, body {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-		  }
-		</style>
-		
-        <script src="..\\static\\angular\\angular.min.js"></script>
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+	height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+</style>
 
-	</head>
+</head>
+<body>
+	<div ng-app="pc" class="container">
 
-  <body>
-  		<div id="map"></div>
+		<div ng-controller="PcController">
 
-    	<script src="..\\static\\PC.js"></script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"  async defer>  </script>
-
-		
-			
-{{boolean}}
-	
-
-	</body>
+			<div id="map"></div>
+		</div>
+	</div>
+</body>
 </html>
