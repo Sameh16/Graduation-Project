@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,8 @@ import com.example.Repostitory.LocationRepository;
 import com.example.models.Location;
 
 @RestController
+@CrossOrigin(origins = "*")
+
 public class GPS {
 
 	@Autowired
