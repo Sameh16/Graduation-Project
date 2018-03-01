@@ -28,6 +28,9 @@ public class Location {
 	@Column(name = "Lon")
 	private Double lon;
 	
+	@Column(name = "speed")
+	private Double speed;
+	
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="truck_id")
 	private Truck truck;
@@ -127,6 +130,18 @@ public class Location {
 	public void setDestinations(Set<Trip> destinations) {
 		this.destinations = destinations;
 	}
+
+
+	public Double getSpeed() {
+		return speed;
+	}
+
+
+	public void setSpeed(Double speed) {
+		this.speed = speed;
+	}
+	
+	
 
 	
 	

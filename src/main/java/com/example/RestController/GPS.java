@@ -23,11 +23,12 @@ public class GPS {
 	@Autowired
 	private LocationRepository locationRepository;
 
-	@RequestMapping(value = "/{lat}/{lon}/saveLocation", method = RequestMethod.GET)
-	public boolean getLocation(@PathVariable Double lat, @PathVariable Double lon) {
+	@RequestMapping(value = "/{lat}/{lon}/{speed}/saveLocation", method = RequestMethod.GET)
+	public boolean getLocation(@PathVariable Double lat, @PathVariable Double lon, @PathVariable Double speed) {
 		Location l = new Location();
 		l.setLat(lat);
 		l.setLon(lon);
+		l.setSpeed(speed);
 
 		if (locationRepository.save(l) != null)
 			return true;
